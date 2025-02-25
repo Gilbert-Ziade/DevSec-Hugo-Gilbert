@@ -18,6 +18,14 @@
         </div>
         <ul id="taskList"></ul>
     </div>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="task-input">
+            <input type="email" id="username" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

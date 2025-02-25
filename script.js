@@ -68,5 +68,23 @@ function searchTasks() {
         });
 }
 
+function login(){
+    let login = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    fetch("./PHP/login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "username=" + encodeURIComponent(login) + "&password=" + encodeURIComponent(password)
+    }).then(response => response.json())
+        .then(response => {
+            if(response.success){
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("taskForm").style.display = "block";
+                loadTasks();
+            }
+        });
+}
+
 
 document.addEventListener("DOMContentLoaded", loadTasks);
