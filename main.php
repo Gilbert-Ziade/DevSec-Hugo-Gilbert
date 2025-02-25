@@ -1,3 +1,20 @@
+<?php
+
+$db = new SQLite3('PHP/data/database.sqlite');
+
+$result = $db->query("SELECT * FROM tasks");
+$tasks = [];
+
+while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    $tasks[] = $row;
+}
+
+// echo all tasks
+foreach ($tasks as &$task) {
+    echo $task['task'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

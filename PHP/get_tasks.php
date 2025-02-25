@@ -18,7 +18,11 @@ header('Content-Type: application/json');
 echo json_encode($tasks); // Pas de htmlspecialchars(), donc vulnérabilité XSS
 
 // Secured Version
-// echo json_encode(array_map('htmlspecialchars', $tasks));
+// Sécurisation : échappe les caractères spéciaux pour éviter l'injection XSS
+/*foreach ($tasks as &$task) {
+    $task['task'] = htmlspecialchars($task['task'], ENT_QUOTES, 'UTF-8');
+}
 
+echo json_encode($tasks);*/
 
 ?>
